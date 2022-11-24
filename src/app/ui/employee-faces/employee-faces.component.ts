@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import {Observable} from "rxjs";
 import {EmployeeModel} from "../../model/employee.model";
+import {EmployeeService} from "../../services/employee.service";
 
 @Component({
   selector: 'app-employee-faces',
@@ -11,8 +11,7 @@ import {EmployeeModel} from "../../model/employee.model";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EmployeeFacesComponent {
-  data$: Observable<EmployeeModel[] | null> = this._httpClient.get<EmployeeModel[]>('https://eqsfaxnghe.cfolks.pl/assets/data/employees.json')
-
-  constructor(private _httpClient: HttpClient) {
+  data$: Observable<EmployeeModel[] | null> = this._employeeService.getAll();
+  constructor(private _employeeService: EmployeeService) {
   }
 }
