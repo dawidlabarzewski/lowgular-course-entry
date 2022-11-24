@@ -1,0 +1,21 @@
+.employee-faces {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.employee-faces__item {
+  margin: 0 10px;
+}
+
+.employee-faces__image {
+  width: 200px;
+  height: auto;
+}
+
+.employee-faces__name {
+  margin-top: 0;
+}
+
+
