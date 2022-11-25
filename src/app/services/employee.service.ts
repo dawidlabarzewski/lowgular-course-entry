@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { PersonModel } from '../model/person.model';
 import { CreateEmployeeModel } from '../model/create-employee.model';
 import { ApiResponse } from './api.response';
+import {EmployeeResponse} from "../model/employee.response";
 
 @Injectable()
 export class EmployeeService {
@@ -12,15 +13,26 @@ export class EmployeeService {
   }
 
   getAll(): Observable<PersonModel[]> {
-    return this._httpClient.get<PersonModel[]>('https://eqsfaxnghe.cfolks.pl/assets/data/people.json');
+    return this._httpClient.get<ApiResponse<EmployeeResponse[]>>('https://dummy.restapiexample.com/api/v1/employees')
+      .pipe(
+        map((response: ApiResponse<EmployeeResponse[]>) => {
+          return response.data.map((employeeResponse: EmployeeResponse) => ({
+            name: employeeResponse.employee_name,
+            personalNumber: employeeResponse.id,
+            img: employeeResponse.profile_image,
+            mail: ''
+          }))
+        })
+      );
   }
 
-  create(employee: CreateEmployeeModel): Observable<ApiResponse<CreateEmployeeModel>> {
+  create(employee: CreateEmployeeModel): Observable<void> {
     return this._httpClient.post('https://dummy.restapiexample.com/api/v1/create', employee)
-      .pipe(map((response: any) => response));
+      .pipe(map(_ => void 0));
   }
 
   delete(id: string): Observable<void> {
-    return this._httpClient.delete(`https://dummy.restapiexample.com/api/v1/delete/${id}`).pipe(map(_ => void 0));
+    return this._httpClient.delete(`https://dummy.restapiexample.com/api/v1/delete/${id}`)
+      .pipe(map(_ => void 0));
   }
 }

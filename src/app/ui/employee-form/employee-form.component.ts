@@ -22,7 +22,7 @@ export class EmployeeFormComponent {
   onFormSubmitted(form: CreateEmployeeModel) {
     this._employeeService.create({ name: form.name, age: form.age, salary: form.salary })
       .subscribe({
-        next(response) {
+        next(x) {
           // alert(response.message);
           alert(`User was successfully added to database. Email: ${form.name}, Age: ${form.age}, Salary: ${form.salary}`);
         }
