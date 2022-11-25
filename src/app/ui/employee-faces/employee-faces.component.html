@@ -1,6 +1,0 @@
-<ul *ngIf="data$ | async as data" class="employee-faces">
-  <li *ngFor="let employee of data" class="employee-faces__item">
-    <img [src]="employee.img" alt="{{ employee.name }}" class="employee-faces__image">
-    <p class="employee-faces__name">{{ employee.name }}</p>
-  </li>
-</ul>
