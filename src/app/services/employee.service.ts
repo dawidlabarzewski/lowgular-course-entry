@@ -20,7 +20,7 @@ export class EmployeeService {
             name: employeeResponse.employee_name,
             personalNumber: employeeResponse.id,
             img: employeeResponse.profile_image,
-            mail: ''
+            mail: `${employeeResponse.employee_name}@lowgular.io`
           }))
         })
       );
