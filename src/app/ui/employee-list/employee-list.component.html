@@ -11,17 +11,17 @@
   </thead>
   <tbody>
     <tr *ngFor="let employee of data ;let i = index" [class.bg-gray-100]="i % 2 == 1">
-      <td>
+      <td class="p-1">
         {{ employee.personalNumber }}
       </td>
-      <td>
+      <td class="p-1">
         {{ employee.name }}
       </td>
-      <td>
+      <td class="p-1">
         {{ employee.mail }}
       </td>
-      <td class="text-center">
-        <button>Delete</button>
+      <td class="text-center p-1">
+        <button class="bg-blue-500 text-white rounded py-1 px-2" (click)="delete(employee.personalNumber)">Delete</button>
       </td>
     </tr>
   </tbody>
