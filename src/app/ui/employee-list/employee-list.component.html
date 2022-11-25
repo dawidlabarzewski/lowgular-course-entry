@@ -1,0 +1,28 @@
+<h1 class="text-xl mb-2">Employee list</h1>
+
+<table *ngIf="data$ | async as data" class="table-auto w-full">
+  <thead class="bg-gray-800 text-white">
+    <tr class="uppercase font-semibold">
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of data ;let i = index" [class.bg-gray-100]="i % 2 == 1">
+      <td>
+        {{ employee.personalNumber }}
+      </td>
+      <td>
+        {{ employee.name }}
+      </td>
+      <td>
+        {{ employee.mail }}
+      </td>
+      <td class="text-center">
+        <button>Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
