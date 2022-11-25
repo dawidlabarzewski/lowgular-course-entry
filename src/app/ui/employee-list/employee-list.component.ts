@@ -14,4 +14,12 @@ export class EmployeeListComponent {
 
   constructor(private _employeeService: EmployeeService) {
   }
+
+  remove(id: string) {
+    this._employeeService.delete(id).subscribe({
+      next(x) {
+        alert('User was successfully removed');
+      }
+    });
+  }
 }
