@@ -9,8 +9,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class EmployeeFormComponent {
   readonly employeeForm: FormGroup = new FormGroup({
-    name: new FormControl(),
-    age: new FormControl(),
-    salary: new FormControl()
+    name: new FormControl(null, [Validators.required]),
+    age: new FormControl(null, [Validators.required, Validators.min(0)]),
+    salary: new FormControl(null, [Validators.required, Validators.min(0)])
   });
 }
