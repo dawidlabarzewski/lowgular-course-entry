@@ -1,16 +1,21 @@
-<div class="max-w-xs mt-3 w-72 p-4">
-  <form [formGroup]="employeeForm" (ngSubmit)="onFormSubmitted(employeeForm.value)" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-    <div class="mb-4">
-      <input type="text" formControlName="name" placeholder="Name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+<div class="card">
+  <div class="card-body">
+    <div class="card-title h4">
+      Create employee
     </div>
-    <div class="mb-4">
-      <input type="number" formControlName="age" placeholder="Age" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-    </div>
-    <div class="mb-4">
-      <input type="number" formControlName="salary" placeholder="Salary" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-    </div>
-    <div class="text-center">
-      <input type="submit" value="Save employee" [disabled]="employeeForm.invalid" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline">
-    </div>
-  </form>
+    <form [formGroup]="employeeForm" (ngSubmit)="onFormSubmitted(employeeForm.value)">
+      <div class="form-group">
+        <input type="text" formControlName="name" placeholder="Name" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="number" formControlName="age" placeholder="Age" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="number" formControlName="salary" placeholder="Salary" class="form-control">
+      </div>
+      <div class="text-center">
+        <input type="submit" value="Save employee" [disabled]="employeeForm.invalid" class="btn btn-primary">
+      </div>
+    </form>
+  </div>
 </div>
